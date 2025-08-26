@@ -97,8 +97,7 @@ if __name__ == "__main__":
     - Un párrafo nuevo que se inserta en `#result`.
     - Un `<span>` con `hx-swap-oob="true"` que reemplaza el contenido
       de `#contador` directamente.
-4.  El contador se actualiza **sin necesidad de recargar toda la
-    página**.
+4.  El contador se actualiza **sin necesidad de recargar toda la página**.
 
 ---
 
@@ -117,5 +116,3 @@ python app.py
 ```
 
 3.  Abre <http://127.0.0.1:5000> en tu navegador.
-
----
