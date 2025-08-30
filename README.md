@@ -1,8 +1,11 @@
-# Ejemplo: HTMX `hx-swap-oob` (Out Of Band)
+# HTMX `hx-swap-oob` (Out Of Band - OOB) - Ejemplo con Python y Flask
 
 Este es un ejemplo simple de cómo usar **hx-swap-oob** con Flask para
 actualizar partes de la página que están fuera del contenedor original
 del `hx-get`.
+
+### Resultado Final 😲
+![Resultado Final](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/evento-hx-swap-oob.gif)
 
 ## Qué es `hx-swap-oob`
 
@@ -15,78 +18,10 @@ del `hx-get`.
   **otros elementos** que se actualizarán "por ID" en la página,
   aunque no estén dentro del contenedor original.
 
----
-
 ## Referencia
 
 https://htmx.org/attributes/hx-swap-oob/
 
-## Estructura de archivos
-
-    .
-    ├── app.py
-    ├── templates/
-    │   ├── index.html
-    │   └── snippet.html
-
----
-
-## Código
-
-### app.py
-
-```python
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-contador = 0
-
-@app.route("/")
-def index():
-    return render_template("index.html", contador=contador)
-
-@app.route("/sumar")
-def sumar():
-    global contador
-    contador += 1
-    return render_template("snippet.html", contador=contador)
-
-if __name__ == "__main__":
-    app.run(debug=True)
-```
-
-### templates/index.html
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Ejemplo OOB</title>
-    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-  </head>
-  <body>
-    <h1>Contador con OOB</h1>
-    <p>Contador: <span id="contador">{{ contador }}</span></p>
-
-    <button hx-get="/sumar" hx-target="#result" hx-swap="innerHTML">
-      Sumar +1
-    </button>
-
-    <div id="result"></div>
-  </body>
-</html>
-```
-
-### templates/snippet.html
-
-```html
-<span id="contador" hx-swap-oob="true">{{ contador }}</span>
-<p>Sumaste un número. Valor actual: {{ contador }}</p>
-```
-
----
 
 ## Cómo funciona
 
@@ -99,14 +34,13 @@ if __name__ == "__main__":
       de `#contador` directamente.
 4.  El contador se actualiza **sin necesidad de recargar toda la página**.
 
----
 
 ## Cómo correrlo
 
-1.  Instala Flask:
+1.  Instala las dependencias del proyecto:
 
 ```bash
-pip install flask
+pip install -r requirements.txt
 ```
 
 2.  Ejecuta el servidor:
@@ -116,3 +50,17 @@ python app.py
 ```
 
 3.  Abre <http://127.0.0.1:5000> en tu navegador.
+
+## 🙌 Cómo puedes apoyar 📢:
+
+✨ **Comparte este proyecto** con otros desarrolladores para que puedan beneficiarse 📢.
+
+☕ **Invítame un café o una cerveza 🍺**:
+   - [Paypal](https://www.paypal.me/iamdeveloper86) (`iamdeveloper86@gmail.com`).
+
+### ⚡ ¡No olvides SUSCRIBIRTE a la [Comunidad WebDeveloper](https://www.youtube.com/WebDeveloperUrianViera?sub_confirmation=1)!
+
+
+#### ⭐ **Déjanos una estrella en GitHub**:
+   - Dicen que trae buena suerte 🍀.
+**Gracias por tu apoyo 🤓.**
