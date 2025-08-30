@@ -1,4 +1,4 @@
-# HTMX `hx-swap-oob` (Out Of Band - OOB) - Ejemplo con Python y Flask
+# HTMX hx-swap-oob (fuera de banda) explicado con ejemplo en Python y Flask
 
 Este es un ejemplo simple de cómo usar **hx-swap-oob** con Flask para
 actualizar partes de la página que están fuera del contenedor original
